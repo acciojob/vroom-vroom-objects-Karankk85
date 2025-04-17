@@ -1,23 +1,26 @@
-// Complete the js code
 function Car(make, model) {
-	this.make = make;
-	this.model= model;
+  this.make = make;
+  this.model = model;
 }
-car.prototype.getMakeModel = function () {
-	return `$(this.make) $(this.model)`
-}
+
+Car.prototype.getMakeModel = function () {
+  return `${this.make} ${this.model}`;
+};
 
 function SportsCar(make, model, topSpeed) {
-	car.call(this, make, model);
-	this.topSpeed = topSpeed;
+  // Inherit properties from Car
+  Car.call(this, make, model);
+  this.topSpeed = topSpeed;
 }
 
-SportsCar.prototype = object.create(car.prototype);
+// Inherit methods from Car's prototype
+SportsCar.prototype = Object.create(Car.prototype);
 SportsCar.prototype.constructor = SportsCar;
 
+// Add getTopSpeed method specific to SportsCar
 SportsCar.prototype.getTopSpeed = function () {
-	return this.topSpeed;
-}
+  return this.topSpeed;
+};
 
 // Do not change the code below
 window.Car = Car;
